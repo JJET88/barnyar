@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function EditAttractionPage() {
   const { id } = useParams();
@@ -70,7 +71,10 @@ export default function EditAttractionPage() {
         <button disabled={saving}>{saving ? "Saving..." : "Save changes"}</button>
         {error && <div style={{ color: "crimson" }}>{error}</div>}
       </form>
-      <p><a href={`/attractions/${id}`}>Cancel</a></p>
+
+      <p>
+        <Link href={`/attractions/${id}`}>Cancel</Link>
+      </p>
     </div>
   );
 }

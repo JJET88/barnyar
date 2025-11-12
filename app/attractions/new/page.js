@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function NewAttractionPage() {
   const router = useRouter();
@@ -47,7 +48,7 @@ export default function NewAttractionPage() {
         <button disabled={saving}>{saving ? "Saving..." : "Create"}</button>
         {error && <div style={{ color: "crimson" }}>{error}</div>}
       </form>
-      <p><a href="/attractions">Back</a></p>
+      <p><Link href="/attractions">Back</Link></p>
     </div>
   );
 }

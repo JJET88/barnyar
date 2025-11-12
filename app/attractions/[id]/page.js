@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 export default function Page() {
   const { id } = useParams();
@@ -46,19 +47,18 @@ export default function Page() {
   return (
     <div>
       <h1>{attraction.name}</h1>
-      <img src={attraction.coverimage} />
+      <img src={attraction.coverimage} alt={attraction.name} />
       <p>{attraction.detail}</p>
       <p>Latitude: {attraction.latitude}</p>
       <p>Longitude: {attraction.longitude}</p>
       <div style={{ display: 'flex', gap: 12, marginTop: 12 }}>
-        <a href={`/attractions/${id}/edit`}>Edit</a>
+        <Link href={`/attractions/${id}/edit`}>Edit</Link>
         <button onClick={onDelete} disabled={deleting}>
           {deleting ? "Deleting..." : "Delete"}
         </button>
-        <a href='/attractions'>Back</a>
+        <Link href='/attractions'>Back</Link>
       </div>
       {error && <div style={{ color: 'crimson', marginTop: 8 }}>{error}</div>}
     </div>
   )
 }
-
